@@ -1,0 +1,32 @@
+{% load static %}
+{% url 'index' as home %}
+{% url 'contact_person_url' as contact_person %}
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(65,100,65,0.16)">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {% if request.path == home %}active{% endif %}">
+                        <a class="nav-link" href="{{ home }}"><b>Home</b></a>
+                    </li>
+
+                    <li><a class="nav-link {% if request.path == contact_person %}active{% endif %}"
+                           href="{{ contact_person }}"><b>IP info</b></a></li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+    <div class="container">
+        <hr>
+    </div>
+
+</section>

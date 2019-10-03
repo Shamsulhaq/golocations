@@ -1,0 +1,28 @@
+{% extends 'include_html/base.html' %}
+{% block body %}
+        <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 card">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>All Contact Person</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in objects %}
+                    <tr>
+                        <td>{{ obj.ip_address }}</td>
+                        <td><a href="https://www.google.com/maps/place/{{ obj.latitude }}+{{ obj.longitude }}">check you possition in google map {{ obj. }}</td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        {% if objects.has_other_pages %}
+                {% include 'include_html/pagination.html' with page_obj=objects %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
